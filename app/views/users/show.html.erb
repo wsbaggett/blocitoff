@@ -1,7 +1,18 @@
 <div class="container">
 <div class="text-center">
-<h1> User Account Information </h1>
+<h1> User Account </h1>
 </div>
 
-<h3> Email Address: <%= @user.email %> </h3>
+<h4> Email Address: <%= @user.email %> </h4>
+      <div class="text-center">
+       <h3><u>Items To Do List</u></h3>
+
+       <% @user.items.each do |item| %>
+      <h4> <%= render partial: 'items/item', locals: {item: item} %> </h4>
+       <% end %>
+
+       <% if current_user %>
+            <%= render 'items/form', item: Item.new, user: @user %>
+       <% end %>
+      </div>
 </div>

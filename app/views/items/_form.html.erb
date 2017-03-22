@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="pull-left">
+<h4>Add an item</h4>
+ </div>
+
+<%= form_for [user, item] do |f| %>
+<div class="form-group">
+  <%= f.label :name, class: 'sr-only' %>
+  <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item" %>
+</div>
+<%= f.submit "Submit Item", class: 'btn btn-default pull-right' %>
+<% end %>
+</div>

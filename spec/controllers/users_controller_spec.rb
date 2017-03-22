@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  let(:current_user) do
+  let(:user) do
     User.create!(
       email: "user@bloccit.com",
       password: "helloworld",
@@ -10,22 +10,23 @@ RSpec.describe UsersController, type: :controller do
     )
   end
 
+  before :each do
+    sign_in user
+  end
+
   describe "GET show" do
      it "returns http success" do
-       sign_in current_user
-       get :show, id: current_user
+       get :show, id: user
        expect(response).to have_http_status(:success)
      end
      it "renders the #show view" do
-       sign_in current_user
-       get :show, id: current_user.id
+       get :show, id: user.id
        expect(response).to render_template :show
      end
      it "assigns current_user to @user" do
-       sign_in current_user
-       get :show, {id: current_user.id}
+       get :show, {id: user.id}
  # #18
-       expect(assigns(:user)).to eq(current_user)
+       expect(assigns(:user)).to eq(user)
      end
    end
 
