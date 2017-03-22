@@ -17,6 +17,8 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'rails-controller-testing'
 gem 'sendgrid-ruby'
+gem 'faker'
+gem 'figaro', '1.0'
 
 group :production do
   gem 'pg'
@@ -34,5 +36,4 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'sqlite3'
-
 end
