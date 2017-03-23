@@ -45,4 +45,17 @@ RSpec.describe ItemsController, type: :controller do
        end
      end
 
+     describe "DELETE destroy" do
+       it "deletes the item" do
+         delete :destroy, user_id: user.id, id: item.id
+         count = Item.where({id: item.id}).count
+         expect(count).to eq 0
+       end
+
+       it "redirects to the show view" do
+         delete :destroy, user_id: user.id, id: item.id
+         expect(response).to redirect_to user
+       end
+     end
+
 end
