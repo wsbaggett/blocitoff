@@ -8,7 +8,7 @@
        <h3><u>Items To Do List</u></h3>
 
        <% @user.items.each do |item| %>
-      <h4> <%= render partial: 'items/item', locals: {item: item} %> </h4>
+         <h4> <%= render partial: 'items/item', locals: {item: item} %> </h4>
        <% end %>
 
        <% if current_user %>

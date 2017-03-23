@@ -1,6 +1,10 @@
 <div class="media">
    <div class="media-body">
+     <% from_time = item.created_at %>
+     <% to_time = Time.now %>
+     <% time_left = distance_of_time_in_words(from_time + 7.days, to_time, include_seconds: true) %>
      <h4><p><%= item.name %>
-     <%= link_to "", user_item_path(@user, item.id), method: :delete, class: 'glyphicon glyphicon-ok' %> </p></h4>
+     <%= link_to "", user_item_path(@user, item.id), method: :delete, class: 'glyphicon glyphicon-ok' %>
+     ( <%= time_left %> left ) </p></h4>
    </div>
  </div>
